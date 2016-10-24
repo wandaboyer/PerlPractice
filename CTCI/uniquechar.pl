@@ -14,28 +14,6 @@ my %disp_table = (unique_char_0 => \&unique_char_0 ,
 			unique_char_1 => \&unique_char_1 );
 
 ($disp_table{$func_name} || sub {die("Invalid function name.\n")})->($the_string);
-# Care of Leon Timmermans: http://stackoverflow.com/questions/433752/how-can-i-determine-if-a-perl-function-exists-at-runtime
-#sub func_exists {    
-#    # no strict 'refs';
-#    my $funcname = shift;
-#    return \&{$funcname} if defined &{$funcname};
-#    return;
-#}
-# 
-#if (func_exists($func_name)) {
-#	if (defined $the_string) {
-#		&{$func_name}->($the_string);	
-#		exit;
-#	}
-#	else {
-#		die "Need legitimate string.\n";
-#	}
-#}
-#else {
-#  die "Need legitimate function name.\n";
-#}
-# 
-
 
 # Determines if string has all unique chars by keeping a dict of chars seen so far, with keys fo chars associated with a count.
 #unique_char_0('ababbbbbbaa');
