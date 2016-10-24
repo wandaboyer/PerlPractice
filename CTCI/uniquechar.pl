@@ -44,8 +44,8 @@ sub unique_char_0 {
 }
 
 # Determines if a string has all unique characters without the use of an additional datastructure.
-#sub unique_char_1 {
+sub unique_char_1 {
 
 
-#}
+}
 
