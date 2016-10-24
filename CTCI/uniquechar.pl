@@ -16,7 +16,6 @@ my %disp_table = (unique_char_0 => \&unique_char_0 ,
 ($disp_table{$func_name} || sub {die("Invalid function name.\n")})->($the_string);
 
 # Determines if string has all unique chars by keeping a dict of chars seen so far, with keys fo chars associated with a count.
-#unique_char_0('ababbbbbbaa');
 sub unique_char_0 {
 	my $the_string = shift;
 	
