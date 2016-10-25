@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="ISBN-type">
+	 <xsd:restriction base="xsd:string">
+	 <xsd:pattern value="\d{1}-\d{5}-\d{3}-\d{1}|\d{1}-\d{3}-\d{5}-\d{1}|\d{1}-\d{2}-\d{6}-\d{1}"/>           
+        </xsd:restriction>
+        </xsd:simpleType>
+	<xs:element name="library">
+	 <xs:complexType>
+	  <xs:element name="book">
+	   <xs:complexType>
+	     <xs:sequence>
+	       <xs:element name="title" type="xs:string"/>
+	       <xs:element name="author" type="xs:string"/>
+	       <xs:element name="isbn" type="ISBN-type"/>
+	       <xs:element name="pages" type="xs:integer"/>
+	       <xs:element name="image"/>
+	     </xs:sequence>
+	   </xs:complexType>
+	  </xs:element>
+          </xs:complexType>
+ 	 </xs:element>
+</xs:schema>
