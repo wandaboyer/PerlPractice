@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use XML::LibXML;
-
 my ($func_name, $the_string) = @ARGV;
 
 # Construct dispatch table for functions available
@@ -27,14 +26,23 @@ sub parse_library_XML_file {
 }
 
 sub validate_schema {
-	my $schema_filename = @_[0]; # shift;
-	my $document_filename = @_[1]; # shift;
-
-	my $doc = XML::LibXML->new->parse_file($document_filename);
+	#my $schema_filename = shift;
+	#my $document_filename = shift;
+	
+	my $schema_filename = "library.xsd";
+	my $document_filename = "library.xml";	
 
 	my $xmlschema = XML::LibXML::Schema->new( location => $schema_filename);
+	my $doc = XML::LibXML->new->parse_file($document_filename);
+
 	# For when you have a string containing the schema
 	#$xmlschema = XML::LibXML::Schema->new( string => $xmlschemastring );
-	eval { $xmlschema->validate( $doc ); };
-
+	my $success;
+	eval {$success =  $xmlschema->validate( $doc ); warn $@ if $@; };
+	if ($success == 0){
+		print("Validation successful.\n");
+	}
+	else {
+		print("Validation unsuccessful.\n");
+	}
 }

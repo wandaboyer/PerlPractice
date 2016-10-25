@@ -5,11 +5,6 @@
 
   <xsd:element name="books" type="bks:BooksForm"/>
 
-  <xsd:simpleType name="ISBN-type">
-   <xsd:restriction base="xsd:string">
-    <xsd:pattern value="\d{1}-\d{5}-\d{3}-\d{1}|\d{1}-\d{3}-\d{5}-\d{1}|\d{1}-\d{2}-\d{6}-\d{1}"/>   </xsd:restriction>
-  </xsd:simpleType>
-
   <xsd:complexType name="BooksForm">
     <xsd:sequence>
       <xsd:element name="book" 
@@ -18,12 +13,12 @@
                   maxOccurs="unbounded"/>
       </xsd:sequence>
   </xsd:complexType>
-  
+
   <xsd:complexType name="BookForm">
     <xsd:sequence>
  	<xsd:element name="title" type="xsd:string"/>
         <xsd:element name="author" type="xsd:string"/>
-        <xsd:element name="isbn" type="bks:ISBN-type"/>
+        <xsd:element name="isbn" type="xsd:integer"/>
         <xsd:element name="pages" type="xsd:integer"/>
         <xsd:element name="image"/>
     </xsd:sequence>
